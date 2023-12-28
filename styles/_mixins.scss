@@ -1,0 +1,14 @@
+@mixin font-weight() {
+  &--300 {
+    font-weight: 300;
+  }
+  &--400 {
+    font-weight: 400;
+  }
+  &--500 {
+    font-weight: 500;
+  }
+  &--600 {
+    font-weight: 600;
+  }
+}
