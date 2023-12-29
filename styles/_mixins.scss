@@ -12,3 +12,10 @@
     font-weight: 600;
   }
 }
+
+@mixin h1() {
+  font-size: 46px;
+  color: $dark-blue;
+  letter-spacing: 2.3px;
+  font-weight: 700;
+}
