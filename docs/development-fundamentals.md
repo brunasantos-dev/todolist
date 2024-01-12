@@ -1,21 +1,16 @@
 # Fundamentos básicos da programação
 
 ## Variavéis:
+
 As variáveis são usadas com nomes simbólicos para valores em sua aplicação.
 São chamados de identificadores as variaveis.
 O identificador Js deve começar com uma letra, underline ou cifrão.
 
-## Var:
+O uso de "var" é menos comum atualmente, uma vez que apresenta escopo global ou de função, podendo resultar em problemas de redeclaração inadvertida. Por exemplo, se tivermos duas funções distintas que declaram variáveis com o mesmo nome, ocorrerá uma redefinição global, potencialmente gerando bugs difíceis de diagnosticar. Portanto, é aconselhável evitar "var" em favor de declarações mais modernas.
 
-Declara uma variável, pode se utilizar um valor para iniciar.
+A declaração "let" é preferível quando se deseja evitar problemas de redeclaração e limitar o escopo da variável ao bloco em que ela é definida. Isso traz maior segurança e clareza ao código. Por exemplo, se tivermos um loop for e declararmos uma variável com "let" dentro desse loop, ela estará acessível apenas dentro desse bloco específico, prevenindo interferências externas e facilitando a manutenção do código.
 
-## Let:
-
-Declara uma variável local de escopo de bloco, pode se adicionar um valor para iniciar.
-
-## Const:
-
-Declara uma constante de escopo de bloco (apenas leitura).
+"const" é ideal para variáveis que não devem ser reatribuídas. Se tivermos uma constante como o valor de PI em uma aplicação, declará-la como "const" garante que seu valor não seja alterado inadvertidamente em outros pontos do código. No caso de objetos, podemos utilizar "const" para garantir que a referência ao objeto permaneça constante, embora suas propriedades possam ser modificadas. Isso é útil em situações em que a estrutura do objeto deve permanecer imutável, mas seus valores podem ser atualizados conforme necessário. Em resumo, escolher entre "let", "const" e "var" depende das necessidades específicas de escopo, reatribuição e imutabilidade em um determinado trecho de código.
 
 ## Tipos de dados em programação
 
@@ -36,6 +31,18 @@ Booleans podem ter apenas um de dois valores: true (verdadeiro) ou false (falso)
 
 Arrays (Séries)
 Arrays são usados para armazenar uma coleção de valores do mesmo tipo. Eles podem ser unidimensionais (uma única linha de valores) ou multidimensionais (matrizes de valores organizados em várias dimensões). São úteis, por exemplo, para armazenar uma lista de produtos em um carrinho de compras, uma lista de alunos em uma turma ou uma matriz de notas de um aluno em várias matérias.
+
+O tipo de dado "number" em JavaScript é utilizado para representar valores numéricos, incluindo inteiros e números de ponto flutuante. Esses números são utilizados em cálculos matemáticos, atribuição de valores, e diversas operações aritméticas.
+
+O tipo "undefined" é atribuído a variáveis que foram declaradas, mas não receberam nenhum valor. É comumente utilizado para indicar a ausência de valor em uma variável ou para representar o resultado de uma expressão que não retorna nenhum valor.
+
+O valor "null" é utilizado para indicar a ausência intencional de um valor em uma variável ou objeto. É frequentemente utilizado para reiniciar o valor de uma variável ou indicar que uma propriedade de um objeto não possui valor.
+
+O tipo "object" é utilizado para representar estruturas de dados complexas e é a base para a construção de objetos em JavaScript. Objetos podem conter propriedades e métodos, proporcionando uma forma flexível de organizar e manipular dados.
+
+"Symbol" é um tipo de dado introduzido no ECMAScript 6, usado para criar identificadores únicos e evitar colisões de nome em propriedades de objetos. Cada símbolo é único, tornando-os úteis em cenários nos quais a identificação exclusiva é crucial.
+
+O tipo "bigint" foi introduzido no ECMAScript 2020 e é utilizado para representar números inteiros de tamanho arbitrariamente grande. Ele é útil quando se lida com números que ultrapassam o limite do tipo "number" em JavaScript, oferecendo uma precisão maior em cálculos envolvendo inteiros extensos.
 
 ## Operadores
 
@@ -97,111 +104,87 @@ var media = (a + b + c + d) / 4;
 
 ## Switch
 
-Devemos utilizar quando queremos comparar a mesma variável ou expressão com várias opções:
+Switch:
+O bloco "switch" em JavaScript é utilizado para realizar múltiplas verificações em uma expressão. Ele permite comparar o valor de uma variável com vários casos possíveis e executar o código associado ao caso correspondente. Isso é especialmente útil quando há várias condições a serem verificadas.
 
-A instrução switch é similar a uma série de instruções IF sobre a mesma expressão. Em muitas ocasiões, você pode querer comparar a mesma variável (ou expressão) com muitos valores diferentes, executando uma peça diferente do código dependendo de qual valor ele se encaixar. Este é exatamente o que a instrução switch faz.
+Exemplo em JavaScript:
 
-switch($a) {
-    case 1: {
-        echo 'Variável A é igual a 1';
-        break;
-    }
-    case 2: {
-        echo 'Variável A é igual a 2';
-        break;
-    }
-    default: {
-        echo 'A Variável A não é igual a 1 nem igual a 2';
-    }
+```javascript
+let day = 3;
+let dayName;
+
+switch (day) {
+  case 1:
+    dayName = "Sunday";
+    break;
+  case 2:
+    dayName = "Monday";
+    break;
+  case 3:
+    dayName = "Tuesday";
+    break;
+  // ... outros casos ...
+  default:
+    dayName = "Unknown day";
 }
+console.log(dayName);
+```
 
-## If
+If:
+A estrutura "if" é fundamental para controlar o fluxo do programa com base em condições. Se a condição especificada for verdadeira, o bloco de código dentro do "if" é executado. Pode ser acompanhado por "else" para tratar o caso em que a condição é falsa.
 
-Devemos utilizar quando queremos realizar uma série de verificações distintas.
+Exemplo em JavaScript:
 
-A construção if é uma das características mais importantes de muitas línguas, PHP incluir. Ela permite a execução condicional de fragmentos de código.
-
-Exemplo no Ideone.
-
-if ($a > $b) {
-    echo "A é maior que B";
+```javascript
+let temperature = 25;
+if (temperature > 30) {
+  console.log("It's a hot day!");
+} else if (temperature > 20) {
+  console.log("It's a warm day.");
+} else {
+  console.log("It's a cold day.");
 }
-else if ($a < $b) {
-    echo "A é menor que B";
+```
+For:
+O loop "for" é utilizado para iterar sobre uma sequência de valores ou realizar um número específico de iterações. É composto por uma inicialização, condição de continuação e expressões de atualização.
+
+Exemplo em JavaScript:
+
+```javascript
+for (let i = 0; i < 5; i++) {
+  console.log(i);
 }
-else if ($a == $b) {
-    echo "A é igual a B";
+```
+
+While:
+O loop "while" executa um bloco de código enquanto uma condição específica é verdadeira. É útil quando o número de iterações não é conhecido antecipadamente.
+
+Exemplo em JavaScript:
+
+```javascript
+Copy code
+let count = 0;
+
+while (count < 5) {
+  console.log(count);
+  count++;
 }
-else {
-    echo "A é alguma coisa não comparável com B";
-}
+Do While:
+O loop "do-while" é semelhante ao "while", mas garante que o bloco de código seja executado pelo menos uma vez, mesmo que a condição seja falsa.
+```
 
-## For
+Exemplo em JavaScript:
 
-Executa o loop enquanto a condição for verdadeira, porém você pode instanciar as variaveis contadoras dentro da estrutura do loop.
+```javascript
+Copy code
+let x = 1;
 
-for($contar = 1; $contar <= 10; $contar++){
-    echo "$contar";
-}
-
-## While
-
-Executa o loop enquanto a condição for verdadeira.
-
-// Contar de 1 até 10
-$contar = 1;
-while($contar <= 10){
-   echo "$contar";
-   $contar++;
-}
-
-## Do While
-
-Executa o loop primeiro e depois verifica a condição.
-
-// Contar de 1 até 10
-$contar = 0;
-do{
-    $contar++;
-    echo "$contar";
-}while($contar <= 10)
-
-## Funções
-
-Funções são blocos de construção fundamentais em JavaScript. Uma função é um procedimento de JavaScript - um conjunto de instruções que executa uma tarefa ou calcula um valor. Para usar uma função, você deve defini-la em algum lugar no escopo do qual você quiser chamá-la.
-
-Funções em Javascript são conhecidas como objetos de primeira classe (first-class objects). Isso porque tudo o que você pode fazer com um objeto, você pode fazer com funções. Na realidade uma função é um objeto do tipo Function.
-
-Sendo assim, as funções em Javascript podem ser:
-
-Criadas de forma literal
-function myFunction(){} //definindo uma função
-
-Passadas como parâmetros para outras funções
-function myFunction(param){} //definindo a função
-
-//invocando a função e passando como parâmetro outra função
-myFunction(function(){ console.log("função como parâmetro") })
-
-1. Funções Declaradas
-As funções declaradas são definidas usando a palavra-chave `function` seguida por um nome e parâmetros. Elas têm um formato assim:
-
-function saudacao(nome) {
-  return "Olá, " + nome + "!";
-}
-Nesse exemplo, “saudacao” é o nome da função, e ela recebe um parâmetro chamado “nome”. Quando chamamos a função `saudacao("João")`, ela retorna "Olá, João!".
-
-2. Funções Expressas
-Atribui-se as funções expressas a variáveis e podem ser anônimas (sem nome) ou nomeadas. Por exemplo:
-
-const saudacao = function(nome) {
-  return "Olá, " + nome + "!";
-};
-Aqui, a função é armazenada na variável `saudacao`. Você pode chamá-la da mesma forma que a função declarada: `saudacao("Maria")`.
-
-Para usar uma função, você precisa chamá-la e fornecer os argumentos necessários. Por exemplo:
-
-const resultado = somar(5, 3); // Chamada da função com dois argumentos: 5 e 3
+do {
+  console.log(x);
+  x++;
+} while (x < 5);
+Cada estrutura desempenha um papel crucial no controle do fluxo de um programa JavaScript, permitindo que os desenvolvedores criem lógica condicional e iterações eficientes.
+```
 
 ## Parâmetros de função
 
@@ -211,103 +194,13 @@ Padrão
 
 Com parâmetros padrão, a verificação no corpo da função não é mais necessária. Agora você pode simplesmente colocar 1 como valor padrão para b no campo de declaração de parâmetros:
 
+```javascript
 function multiplicar(a, b = 1) {
-  return a * b;
+return a * b;
 }
 
 multiplicar(5); // 5
-
-Parâmetros rest
-
-A sintaxe de parâmetro rest permite representar um número indefinido de argumentos como um array. No exemplo, usamos parâmetros rest para coletar argumentos do segundo argumento ao último. Então os multiplicamos pelo primeiro argumento. Neste exemplo é usado uma arrow function, que será introduzida na próxima seção.
-
-function multiplicar(multiplicador, ...args) {
-  return args.map((x) => multiplicador * x);
-}
-
-var arr = multiplicar(2, 1, 2, 3);
-console.log(arr); // [2, 4, 6]
-
-Funções de seta
-Uma expressão função de seta (anteriormente conhecida como função de seta gorda) tem uma sintaxe pequena em comparação com a expressão de função e lexicalmente vincula o valor this. Funções de seta são sempre anônimas. 
-Dois fatores influenciaram a introdução de funções de seta: funções mais curtas e o léxico this.
-
-Funções curtas
-Em alguns padrões funcionais, funções curtas são bem-vindas. Compare:
-
-var a = ["Hydrogen", "Helium", "Lithium", "Beryllium"];
-
-var a2 = a.map(function (s) {
-  return s.length;
-});
-
-var a3 = a.map((s) => s.length);
-
-Léxico this
-Até as funções de seta, cada nova função definia seu próprio valor this (um novo objeto no caso de um construtor, indefinido em chamadas de função no modo estrito, o objeto de contexto se a função é chamada como um "método de objeto", etc.). Isso pode ser irritante com um estilo de programação orientada a objetos.
-
-function Pessoa() {
-  // O construtor Pessoa() define 'this' como sendo ele.
-  this.idade = 0;
-  setInterval(function crescer() {
-    // No modo não estrito, a função crescer define 'this'
-    // como o objeto global, o que é diferente do 'this'
-    // definido pelo construtor Pessoa().
-    this.idade++;
-  }, 1000);
-}
-var p = new Pessoa();
-
-Funções de seta capturam o valor this do contexto delimitado, então o código a seguir funciona conforme o esperado.
-
-function Pessoa(){
-  this.idade = 0;
-
-  setInterval(() => {
-    this.idade++; // propriedade |this|refere ao objeto pessoa
-  }, 1000);
-}
-
-var p = new Pessoa();
-
-Funções pré-definidas
-JavaScript tem várias funções pré-definidas:
-
-eval()
-O método eval() avalia código JavaScript representado como uma string.
-
-uneval() Non-standard
-O método uneval() cria uma representação de string do código-fonte de um Object.
-
-isFinite()
-A função global isFinite() determina se o valor passado é um número finito. Se necessário, o parâmetro é primeiro convertido para um número.
-
-isNaN()
-A função isNaN() determina se um valor é NaN ou não. Nota: coerção dentro da função isNaN tem regras interessantes; você pode, alternativamente, querer usar Number.isNaN(), como definido no ECMAScript 6, ou você pode usar typeof para determinar se o valor não é um número.
-
-parseFloat()
-A função parseFloat() analisa um argumento do tipo string e retorna um número de ponto flutuante.
-
-parseInt()
-A função parseInt() analisa um argumento do tipo string e retorna um inteiro da base especificada (base do sistema numérico).
-
-decodeURI()
-A função decodeURI() decodifica uma Uniform Resource Identifier (URI) criada anteriormente por encodeURI ou por uma rotina similar.
-
-decodeURIComponent()
-O método decodeURIComponent() decodifica um componente Uniform Resource Identifier (URI) criado anteriormente por encodeURIComponent ou por uma rotina similar.
-
-encodeURI()
-O método encodeURI() codifica um Uniform Resource Identifier (URI), substituindo cada ocorrência de determinados caracteres por um, dois, três, ou quatro sequências de escape que representa a codificação UTF-8 do caractere (só serão quatro sequências de escape para caracteres compostos de dois caracteres "substitutos").
-
-encodeURIComponent()
-O método encodeURIComponent() codifica um componente Uniform Resource Identifier (URI), substituindo cada ocorrência de determinados caracteres por um, dois, três, ou quatro sequências de escape que representa a codificação UTF-8 do caractere (só serão quatro sequências de escape para caracteres compostos de dois caracteres "substitutos").
-
-escape() Deprecated
-O método obsoleto escape() calcula uma nova string na qual certos caracteres foram substituídos por uma sequência de escape hexadecimal. Use encodeURI ou encodeURIComponent em vez disso.
-
-unescape() Deprecated
-O método obsoleto unescape() calcula uma nova string na qual sequências de escape hexadecimais são substituídas pelo caractere que ela representa. As sequências de escape podem ser introduzidas por uma função como escape. Por unescape() estar obsoleto, use decodeURI() ou decodeURIComponent ao invés dele.
+```
 
 ## Argumento
 
@@ -335,30 +228,50 @@ Para retornar um valor de uma função personalizada, você precisa usar ... agu
 
 Provavelmente você já tem conhecimento sobre iso agora, mas... para realmente usar uma função depois dela ter sido definida, você tem que rodá-la — ou invocá-la. Isso é feito ao se incluir o nome da função em algum lugar do código, seguido por parênteses.
 
+```javascript
 function myFunction() {
   alert("hello");
 }
 
 myFunction();
 // Chama a função um vez
+```
 
 ## Funções anônimas
 
 Você viu funções definidas e invocadas de maneiras ligeiramente diferentes. Até agora nós só criamos funções como esta:
 
-JS
-Copy to Clipboard
+```javascript
 function myFunction() {
   alert("hello");
 }
+```
 
 Mas você também pode criar funções que não tem nome:
 
-JS
-Copy to Clipboard
+```javascript
 function() {
   alert('hello');
 }
+```
+## Arrow functions 
+
+São uma forma concisa de escrever funções em JavaScript introduzidas no ECMAScript 6 (ES6). Elas oferecem uma sintaxe mais curta e uma vinculação léxica do this, o que significa que o valor de this é capturado do contexto circundante no momento em que a função é definida, não no momento em que é executada.
+
+Exemplo de arrow function:
+
+```javascript
+Copy code
+// Sintaxe tradicional de função
+function soma(a, b) {
+  return a + b;
+}
+
+// Arrow function equivalente
+const somaArrow = (a, b) => a + b;
+```
+
+Neste exemplo, somaArrow é uma arrow function que realiza a mesma operação de adição que a função soma, mas de forma mais concisa. Arrow functions são frequentemente utilizadas em situações onde a brevidade e a captura do contexto this são vantagens desejáveis.
 
 ## Objetos e Arrays
 
@@ -377,8 +290,10 @@ Para utilizar os Arrays precisamos declarar uma variável (você pode acessar o 
 
 E ao atribuir um valor, vamos colocar entre [] e separar cada um por ,. Por exemplo:
 
+```javascript
 let alunos = ['Wesley', 'Marina', 'Bruno', 'Paula'];
 var series = ['Game of Thrones', 'Friends', 'Vikings'];
+```
 
 ## Como utilizar objetos no JavaScript
 
@@ -386,6 +301,7 @@ Nós utilizamos objetos para agrupar valores que possuem propriedades e funçõe
 
 Para declarar um objeto a sintaxe é bem parecida a que utilizamos para declarar arrays, porém trocamos os [] por {}. Onda as chaves, valores e funções são declaradas entre {}, conforme abaixo:
 
+```javascript
 let carro = {
 		modelo: 'gol',
 		cor: 'vermelho',
@@ -396,6 +312,7 @@ let carro = {
 			console.log('Freando');
 		},
 };
+```
 
 Neste caso declaramos o objeto literal carro, que possui duas propriedades, modelo e cor, que podem ser chamadas de chaves. Declaramos também duas funções, acelerar e frear, que podem ser chamadas de métodos. Vale ressaltar que nós podemos declarar de outras formas as funções: acelerar: function () {}ou utilizando uma arrow function, acelerar: () => {}.
 
@@ -406,10 +323,11 @@ Após declarar nosso objeto, podemos executar um cosole.log(carro); para visuali
 ## Como acessar as propriedades ou funções de um Objeto?
 
 Para acessar uma propriedade ou uma função basta utilizarmos o nome do objeto seguido da propriedade/função separada por ponto. Por exemplo:
-
+```javascript
 console.log(carro.modelo);
 console.log(carro.acelerar);
 carro.acelerar();
+```
 
 Utilizamos a função console.log, para exibir os dados acessados no console, importante lembrar que para executar a função acelerar não podemos esquecer dos ().
 
@@ -417,13 +335,16 @@ Utilizamos a função console.log, para exibir os dados acessados no console, im
 
 Os métodos são blocos de código em JavaScript que executam ações e funções específicas de um objeto. Para essa aula, é importante revisar os conceitos aprendidos sobre objetos e funções.
 
+```javascript
 const zeus = {
     nome: 'Zeus',
     raca: 'Vira-Lata',
     idade: 7,
 }
+```
 Quando criamos um objeto, como o nosso “cachorro” neste caso, definimos não apenas suas características, mas também suas capacidades e as ações que ele pode executar.
 
+```javascript
 const zeus = {
     nome: 'Zeus',
     raca: 'Vira-Lata',
@@ -432,11 +353,13 @@ const zeus = {
         console.log('Au au au au!');
     },
 }
+```
 
 Podemos criar uma função anônima dentro do nosso objeto porque ela está associada a um campo específico dentro dele. No nosso exemplo, a função está associada ao campo latir do objeto zeus.
 
 Isso significa que se executarmos o código:
 
+```javascript
 const zeus = {
     nome: 'Zeus',
     raca: 'Vira-Lata',
@@ -445,8 +368,8 @@ const zeus = {
         console.log('Au au au au!');
     },
 }
-
 zeus.latir();
+```
 
  ![Alt text](image-2.png)
 
@@ -510,16 +433,21 @@ A palavra-chave await recebe uma Promise e a transforma em um valor de retorno (
 
 Um exemplo:
 
+```javascript
 let response = await fetch(`https://api.com/api/user/${userId}`);
 let userData = await response.json();
+```
 
 Só é possível usar await em funções declaradas com a palavra-chave async, então vamos adicioná-la:
 
+```javascript
 async function getUser(userId) {
  let response = await fetch(`https://api.com/api/user/${userId}`);
  let userData = await response.json();
  return userData.name; // nas linhas de return não é necessário usar await
 }
+```
+
 Uma função declarada como async significa que o valor de retorno da função será, "por baixo dos panos", uma Promise. Se a Promise se resolver normalmente, o objeto-Promise retornará o valor. Caso lance uma exceção, podemos usar o try/catch como estamos acostumados em programas síncronos.
 
 Para executar a função getUser(), já que ela retorna uma Promise, pode-se usar await:
@@ -593,41 +521,90 @@ document.getElementById('elemento').classList.toggle('classe'); // Faz toggle na
 
 LocalStorage é também chamado de Web Storage ou Armazenamento local. localStorage é um objeto JavaScript que usamos para armazenar dados no navegador. Ele fornece métodos para armazenar e recuperar a informação. O uso da API é bem simples, é baseada em chave-valor.
 
-Método setItem
-Esse é o método que usamos para armazenar valores. Sempre devemos passar uma chave como referência. No exemplo abaixo usei nome e idade como chaves.
+```javascript
+// Utilizando let ou const para definir o nome e a idade
+const nome = 'Marta Silva Rocha';
+const idade = 28;
 
-window.localStorage.setItem(‘nome’, ‘Marta Silva Rocha’);
-window.localStorage.setItem(‘idade’, 28);
-Caso use o mesmo código acima, trocando apenas o nome “Marta Silva Rocha” e a idade “28” os dados anteriormente gravados serão sobre escritos, já que as chaves “nome” e “idade” permanecem as mesmas
+// Armazenando os valores no localStorage
+localStorage.setItem('nome', nome);
+localStorage.setItem('idade', idade);
 
-Método getItem
-Para resgatar o valor armazenado anteriormente utilizamos o método getItem. Usei o comando console.log para imprimir no console os dados resgatados, veja o exemplo
+// Recuperando os valores usando getItem
+const nomeArmazenado = localStorage.getItem('nome');
+const idadeArmazenada = localStorage.getItem('idade');
 
-var nome = window.localStorage.getItem(‘nome’);
-var idade = window.localStorage.getItem(‘idade’);
-console.log(nome); // Marta Silva Rocha
-console.log(idade); // 28
+console.log(nomeArmazenado); // Marta Silva Rocha
+console.log(idadeArmazenada); // 28
 
-Agora o melhor mesmo é usar JSON para trabalhar com armazenamento local, assim podemos trabalhar com objetos. E outro detalhe, o tipo padrão de armazenamento é String. Isso deve ser considerado se você pretende usar os dados para fazer alguma operação matemática, por exemplo. Com JSON você foge dessa dificuldade com os métodos JSON.stringify e JSON.parse.
+// Utilizando JSON para armazenar um objeto no localStorage
+const usuario = { nome: "John Smith da Silva", idade: 29 };
+localStorage.setItem('usuario', JSON.stringify(usuario));
 
-var usuario = { nome: "John Smith da Silva", idade: 29 };
-window.localStorage.setItem('usuario', JSON.stringify(usuario));
-Para recuperar o valor armazenado no objeto usamos o método parse:
+// Recuperando o objeto usando JSON.parse
+const usuarioArmazenado = JSON.parse(localStorage.getItem('usuario'));
 
-var usuario = JSON.parse(window.localStorage.getItem('usuario'));
-console.log(usuario.nome); // John Smith da Silva
-console.log(usuario.idade); // 29
+console.log(usuarioArmazenado.nome); // John Smith da Silva
+console.log(usuarioArmazenado.idade); // 29
 
-length()
-Propriedade que mostra a quantidade de dados armazenados no objeto localStorage.
+// Propriedade length para mostrar a quantidade de dados armazenados
+const quantidadeDeDados = localStorage.length;
 
-localStorage.length
-key()
-Método que mostra o nome da chave que foi armazenada na posição passada. O Exemplo abaixo iria retornar o nome da primeira chave.
+// Método key para obter a chave armazenada em uma determinada posição
+const primeiraChave = localStorage.key(0);
 
-localStorage.key(0)
-Caso queira ver o valor que foi armazenado nessa chave pode fazer:
+// Obtendo o valor armazenado na primeira chave
+const valorPrimeiraChave = localStorage.getItem(primeiraChave);
 
-localStorage.getItem(localStorage.key(0))
-Todas as informações salvas no localStorage só serão removidas utilizando os métodos vistos ou se o usuário limpar os dados do seu navegador. Caso contrário ele pode fechar e abrir o navegador, as informações armazenadas continuarão no navegador.
+// Exibindo informações
+console.log(quantidadeDeDados);
+console.log(primeiraChave);
+console.log(valorPrimeiraChave);
+```
 
+## Elementos do DOM
+
+Para selecionar elementos no DOM, o Vanilla JS utiliza os métodos querySelector e querySelectorAll. O querySelector retorna o primeiro elemento que corresponde a um seletor CSS especificado, enquanto o querySelectorAll retorna uma NodeList contendo todos os elementos correspondentes ao seletor.
+
+Aqui está um exemplo de como usar querySelector para selecionar um elemento pelo seu ID e adicionar uma classe a ele:
+
+```javascript
+Copy code
+// Seleciona o elemento pelo ID
+let meuElemento = document.querySelector('#id-do-elemento');
+
+// Adiciona uma classe ao elemento
+meuElemento.classList.add('minha-classe');
+```
+No exemplo acima, substitua 'id-do-elemento' pelo ID real do seu elemento HTML e 'minha-classe' pela classe que você deseja adicionar.
+
+Além disso, para remover uma classe, você pode usar o método classList.remove:
+
+```javascript
+Copy code
+// Remove uma classe do elemento
+meuElemento.classList.remove('minha-classe');
+```
+
+Caso você queira alternar a presença de uma classe, ou seja, adicioná-la se ela não estiver presente e removê-la se já estiver, use o método classList.toggle:
+
+```javascript
+Copy code
+// Alterna a presença da classe no elemento
+meuElemento.classList.toggle('minha-classe');
+```
+
+Para selecionar vários elementos e realizar operações em todos eles, você pode usar querySelectorAll. Por exemplo, para adicionar uma classe a todos os elementos de uma determinada classe:
+
+```javascript
+Copy code
+// Seleciona todos os elementos pela classe
+var todosElementos = document.querySelectorAll('.minha-classe');
+
+// Adiciona uma classe a todos os elementos
+todosElementos.forEach(function(elemento) {
+    elemento.classList.add('outra-classe');
+});
+```
+
+Estes são apenas alguns exemplos básicos de como adicionar e remover classes usando Vanilla JS. Essas operações são fundamentais para a criação de interatividade dinâmica em páginas web.
