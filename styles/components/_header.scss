@@ -1,5 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Inter:wght@300;400;900&family=Jost:wght@300;500&family=Montserrat&family=Open+Sans:wght@300&family=Poppins:wght@200;400;900&family=Roboto:ital,wght@0,300;1,300&family=Ubuntu:wght@300&family=VT323&display=swap');
+
 .header {
-  &__title {
-    @include h1;
-  }
+  background-color: #fdffff;
 }
+
+.container {
+  color: #1b4965;
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+h1 {
+  font-family: 'Ubuntu';
+  font-size: 46px;
+  letter-spacing: 2.3px;
+  font-weight: 700;
+}
+
+p {
+  font-size: 16px;
+}
+
+//{}
