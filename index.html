@@ -6,15 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo list</title>
     <link rel="stylesheet" href="/styles/index.scss" />
+    <script src="nav-header.js" defer></script>
   </head>
   <body>
     <header>
       <nav>
-        <ul>
-          <li>Página inicial</li>
-          <li>Quem somos</li>
-          <li>Minhas tarefas</li>
-        </ul>
+        <div id="menu">
+          <div id="menu-bar" onclick="menuOnClick()">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="47"
+              height="30"
+              viewBox="0 0 47 30"
+              id="svg-icon"
+            >
+              <rect
+                x="14.6675"
+                y="0.431274"
+                width="32.0081"
+                height="5.04147"
+                rx="2.52073"
+                fill="#1B4965"
+              />
+              <rect
+                x="0.949707"
+                y="12.5308"
+                width="45.7258"
+                height="5.04147"
+                rx="2.52073"
+                fill="#1B4965"
+              />
+              <rect
+                x="20.3833"
+                y="24.6304"
+                width="26.2923"
+                height="5.04147"
+                rx="2.52073"
+                fill="#1B4965"
+              />
+            </svg>
+          </div>
+          <nav class="nav" id="nav">
+            <ul>
+              <img src="/public/svgs/logo-desktop.svg" alt="menu-hamburguer" />
+              <li>
+                <a href="#" class="btn" role="button"> Página inicial </a>
+              </li>
+              <li>
+                <a href="#" class="btn" role="button"> Quem somos </a>
+              </li>
+              <li>
+                <a href="#" class="btn" role="button"> Minhas tarefas </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="menu-bg" id="menu-bg"></div>
       </nav>
       <div class="container">
         <img
