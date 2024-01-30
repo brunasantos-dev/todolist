@@ -1,0 +1,23 @@
+* {
+  font-family: 'Ubuntu';
+  color: #1b4965;
+}
+
+.about-us {
+  display: grid;
+  padding: 2em;
+
+  &__title {
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  &__article {
+    padding-top: 1em;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: left;
+  }
+}
