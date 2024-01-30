@@ -1,0 +1,18 @@
+footer {
+  width: 100vw;
+  height: 64px;
+  padding: 17px, 0px, 15px, 125px;
+  border: 1px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    linear-gradient(0deg, #1b4965, #1b4965);
+}
+
+.footer__title {
+  font-size: 18px;
+  color: #99e8fe;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: center;
+  padding: 1em;
+}
