@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Inter:wght@300;400;900&family=Jost:wght@300;500&family=Montserrat&family=Open+Sans:wght@300&family=Poppins:wght@200;400;900&family=Roboto:ital,wght@0,300;1,300&family=Ubuntu:wght@300&family=VT323&display=swap');
 
+* {
+  margin: auto;
+}
+
 .header {
   background-color: #fdffff;
 }
@@ -33,7 +37,6 @@ p {
 }
 
 .nav {
-  right: 0;
   transition: 0.3s ease;
   display: none;
 }
@@ -44,7 +47,7 @@ p {
 
 .nav li {
   list-style: none;
-  padding: 12px 0;
+  padding-bottom: 5em;
 }
 
 .nav li a {
@@ -103,4 +106,10 @@ p {
 .change-bg {
   width: 100vw;
   height: 100%;
+}
+
+.change-svg-blue {
+  margin: 30px 20px 20px 0;
+  position: fixed;
+  right: 0;
 }
