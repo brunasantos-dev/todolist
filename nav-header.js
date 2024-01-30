@@ -3,4 +3,5 @@ function menuOnClick() {
     document.getElementById("nav").classList.toggle("change");
     document.getElementById("menu-bg").classList.toggle("change-bg");
     document.getElementById("svg-icon").classList.toggle("svg-blue");
+    document.getElementById("svg-icon").classList.toggle("change-svg-blue");
   }
