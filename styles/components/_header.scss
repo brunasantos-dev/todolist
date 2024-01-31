@@ -40,6 +40,11 @@ p {
 .nav {
   transition: 0.3s ease;
   display: none;
+  margin-top: 15em;
+}
+
+img {
+  margin-bottom: 5em;
 }
 
 .nav ul {
@@ -63,6 +68,7 @@ p {
   font-weight: bold;
   color: #1b4965;
 }
+
 .btn {
   display: block;
   font-size: 24px;
