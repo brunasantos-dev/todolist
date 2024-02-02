@@ -28,6 +28,9 @@ h1 {
   font-size: 16px;
 }
 
+.hero-img {
+  margin-top: 5em;
+}
 #menu {
   z-index: 2;
 }
@@ -43,8 +46,9 @@ h1 {
   margin-top: 15em;
 }
 
-img {
+.svg-logo {
   margin-bottom: 5em;
+  display: grid;
 }
 
 .nav ul {
@@ -96,10 +100,9 @@ img {
 
 .menu-bg {
   z-index: 1;
-  width: 0;
-  height: 0;
+  align-content: center;
   background-color: #1b4965;
-  transition: 0.5s ease;
+  transition: 0.6s ease;
 }
 
 .svg-blue rect {
@@ -116,7 +119,7 @@ img {
 }
 
 .change-svg-blue {
-  margin: 30px 20px 20px 0;
   position: fixed;
   right: 0;
+  margin-right: 2em;
 }
